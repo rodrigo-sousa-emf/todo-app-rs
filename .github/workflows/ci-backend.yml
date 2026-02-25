@@ -1,13 +1,16 @@
-name: Build and save my Docker image to a registry
+name: CI Backend
 
 on:
   push:
     branches:
-      - main  # Déclenchement lorsque le code est poussé sur main
+      - main
+    paths:
+      - "backend/**"
+      - ".github/workflows/ci-backend.yml"
 
 env:
-  REGISTRY: "acrinfofd22210.azurecr.io"   # Nom de la registry
-  IMAGE_NAME: "todo-backend-rs"           # Nom de l’image
+  REGISTRY: "acrinfofd22210.azurecr.io"
+  IMAGE_NAME: "todo-backend-rs"
 
 jobs:
   build-and-push:
@@ -26,7 +29,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+          docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }} ./backend
 
       - name: Push Docker image
         run: |
