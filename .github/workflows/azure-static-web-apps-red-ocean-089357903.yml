@@ -50,6 +50,7 @@ jobs:
           urls: |
             https://todo-app.rodrigosousa.emf-informatique.ch/
           uploadArtifacts: false
+          configPath: "./lighthouserc.json"
           temporaryPublicStorage: true
 
   close_pull_request_job:
