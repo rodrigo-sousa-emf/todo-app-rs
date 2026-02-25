@@ -41,8 +41,13 @@ jobs:
           api_location: ""
           output_location: "."
 
-      - name: Lighthouse CI Action
-        uses: treosh/lighthouse-ci-action@12.6.1
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v10
+        with:
+          urls: |
+            https://todo-app.rodrigosousa.emf-informatique.ch/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
