@@ -9,7 +9,7 @@ on:
       - ".github/workflows/ci-backend.yml"
 
 env:
-  REGISTRY: "todo-backend-rs.azurecr.io"
+  REGISTRY: "todo-app-rs.azurecr.io"
   IMAGE_NAME: "todo-app-rodrigo"
 
 jobs:
